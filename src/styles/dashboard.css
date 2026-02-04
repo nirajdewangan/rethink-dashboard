@@ -145,3 +145,12 @@ body {
   justify-content: center;
   gap: 12px;
 }
+
+.team-cards-row {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}

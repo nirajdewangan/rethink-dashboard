@@ -1,69 +1,58 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/createTeamModal.css";
 
 export default function CreateTeamModal({ isOpen, onClose, onCreate }) {
-  const inputRef = useRef(null);
+  const [teamName, setTeamName] = useState("");
 
   useEffect(() => {
     if (!isOpen) return;
+    setTeamName("");
 
-    // Focus input when modal opens
-    const t = setTimeout(() => inputRef.current?.focus(), 0);
-
-    // Close on ESC
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      clearTimeout(t);
-      window.removeEventListener("keydown", handleKeyDown);
-    };
+    const onKey = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    const teamName = inputRef.current?.value?.trim() || "";
-    if (!teamName) return;
-    onCreate(teamName);
+    const name = teamName.trim();
+    if (!name) return;
+    onCreate(name);
   };
 
-  const handleBackdropClick = (e) => {
-    // close only if clicked on backdrop, not inside modal
+  const closeOnBackdrop = (e) => {
     if (e.target.classList.contains("modal-backdrop")) onClose();
   };
 
   return (
-    <div className="modal-backdrop" onMouseDown={handleBackdropClick}>
+    <div className="modal-backdrop" onMouseDown={closeOnBackdrop}>
       <div className="modal-card" role="dialog" aria-modal="true">
         <div className="modal-header">
           <div>
             <h3>Create New Team</h3>
             <p>Give your team a name to get started</p>
           </div>
-
           <button className="icon-btn" onClick={onClose} aria-label="Close">
             ✕
           </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={submit}>
           <label className="modal-label">Team Name</label>
           <input
-            ref={inputRef}
             className="modal-input"
             placeholder="e.g., Engineering Team"
-            type="text"
+            value={teamName}
+            onChange={(e) => setTeamName(e.target.value)}
           />
 
           <div className="modal-actions">
             <button type="button" className="btn-secondary" onClick={onClose}>
               Cancel
             </button>
-            <button type="submit" className="btn-primary">
+            <button type="submit" className="btn-primary" disabled={!teamName.trim()}>
               Create Team
             </button>
           </div>

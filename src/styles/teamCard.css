@@ -1,0 +1,87 @@
+.team-card {
+  width: 360px;        /* 👈 important */
+  max-width: 100%;
+  padding: 22px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+.team-card {
+  flex: 1 1 340px;   /* grow | shrink | base width */
+  max-width: 420px;
+}
+
+.team-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.team-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.team-info {
+  flex: 1;
+}
+
+.team-name {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.invite-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.invite-code {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #eaf2ff;
+  color: #1d4ed8;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.team-arrow {
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.team-arrow:hover {
+  color: #111827;
+}
+
+.view-team-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  background: #2f63d4;
+}
+
+.view-team-btn:hover {
+  background: #1d4ed8;
+}
