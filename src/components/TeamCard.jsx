@@ -1,7 +1,9 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/teamCard.css";
 
-export default function TeamCard({ team, onView }) {
+export default function TeamCard({ team }) {
+  const navigate = useNavigate();
+
   return (
     <div className="team-card">
       <div className="team-card-top">
@@ -10,17 +12,23 @@ export default function TeamCard({ team, onView }) {
         <div className="team-info">
           <h3 className="team-name">{team.name}</h3>
           <div className="invite-row">
-            <span className="invite-label">Invite Code:</span>
+            <span>Invite Code:</span>
             <span className="invite-code">{team.inviteCode}</span>
           </div>
         </div>
 
-        <button className="team-arrow" onClick={() => onView(team)}>
+        <button
+          className="team-arrow"
+          onClick={() => navigate(`/teams/${team.id}`, { state: team })}
+        >
           →
         </button>
       </div>
 
-      <button className="view-team-btn" onClick={() => onView(team)}>
+      <button
+        className="view-team-btn"
+        onClick={() => navigate(`/teams/${team.id}`, { state: team })}
+      >
         View Team
       </button>
     </div>

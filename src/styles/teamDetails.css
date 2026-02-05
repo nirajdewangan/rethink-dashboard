@@ -1,0 +1,96 @@
+.team-details {
+  padding: 24px 40px;
+}
+
+.team-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #2563eb;
+}
+
+.team-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.team-icon {
+  width: 48px;
+  height: 48px;
+  background: #eef2ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invite-pill {
+  background: #eef2ff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.add-member-btn {
+  margin-left: auto;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+}
+
+.stats-row {
+  display: flex;
+  gap: 16px;
+}
+
+.stat-card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 14px;
+  color: #fff;
+}
+
+.stat-card.blue { background: #2563eb; }
+.stat-card.green { background: #059669; }
+.stat-card.orange { background: #d97706; }
+
+.content-row {
+  display: flex;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.panel {
+  flex: 1;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.empty-box {
+  margin-top: 12px;
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+  border: 2px dashed #e5e7eb;
+  border-radius: 12px;
+}
+
+.empty-box.large {
+  padding: 60px;
+}
